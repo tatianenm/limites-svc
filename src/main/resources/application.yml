@@ -2,9 +2,8 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/limites
-    hikari:
-      username: limite
-      password: limite_passwd
+    username: limite
+    password: limite
   jpa:
     properties:
       hibernate:
