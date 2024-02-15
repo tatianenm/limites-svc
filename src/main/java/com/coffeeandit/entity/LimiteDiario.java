@@ -3,9 +3,7 @@ package com.coffeeandit.entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 
@@ -16,6 +14,7 @@ import java.math.BigDecimal;
 public class LimiteDiario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long agencia;
