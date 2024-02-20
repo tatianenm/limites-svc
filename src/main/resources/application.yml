@@ -1,11 +1,12 @@
----
-server: 'port:8081'
+server:
+  port: 8081
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/limites
-    username: limite
-    password: limite
+    hikari:
+      username: limite
+      password: limite
   jpa:
     properties:
       hibernate:
@@ -19,4 +20,4 @@ spring:
     generate-ddl: true
 
 limite:
-  valor:2000
+  valor: 2000

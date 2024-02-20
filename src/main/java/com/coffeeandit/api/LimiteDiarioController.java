@@ -5,12 +5,14 @@ import com.coffeeandit.service.LimiteDiarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/limite-diario")
 public class LimiteDiarioController {
 
     LimiteDiarioService limiteDiarioService;
@@ -19,7 +21,7 @@ public class LimiteDiarioController {
         this.limiteDiarioService = limiteDiarioService;
     }
 
-    @GetMapping(value = "/limite-diario/{id}")
+    @GetMapping(value = "/{id}")
     public LimiteDiario findById(@PathVariable("id") Long id) {
 
         Optional<LimiteDiario> limiteDiarioOptional = limiteDiarioService.findById(id);
@@ -31,7 +33,7 @@ public class LimiteDiarioController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Recurso não encontrado");
     }
 
-    @GetMapping(value = "/limite-diario/{agencia}/{conta}")
+    @GetMapping(value = "/{agencia}/{conta}")
     public LimiteDiario buscarLimiteDiario(@PathVariable("agencia") final Long agencia, @PathVariable("conta") final Long conta) {
         var limiteDiario = limiteDiarioService.buscarLimiteDiario(agencia, conta);
         if (limiteDiario.isPresent()) {
